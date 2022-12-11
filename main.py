@@ -1,4 +1,11 @@
-from app import app
+from app import app, db
 
 if __name__ == '__main__':
-	app.run(debug=True)
+    try:
+        print('Starting server')
+        app.run(debug=False)
+    except e:
+        print(e)
+    finally:
+        db.close()
+        exit()
